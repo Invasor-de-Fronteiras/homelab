@@ -1,0 +1,7 @@
+apps:
+  - name: whoami
+    source:
+      releaseName: whoami
+      repoURL: https://github.com/Invasor-de-Fronteiras/homelab.git
+      targetRevision: HEAD
+      path: apps/whoami

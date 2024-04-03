@@ -26,10 +26,10 @@ spec:
     repoURL: {{ .source.repoURL }}
     targetRevision: {{ .source.targetRevision }}
     path: {{ .source.path }}
-#   syncPolicy:
-#     automated:
-#       prune: true
-#       selfHeal: true
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
     retry:
       limit: 3
       backoff:

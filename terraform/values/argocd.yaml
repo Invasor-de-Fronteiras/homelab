@@ -11,17 +11,15 @@ applications:
      repoURL: https://github.com/Invasor-de-Fronteiras/homelab.git
      targetRevision: HEAD
      path: apps/cluster
-     directory:
-       recurse: true
    destination:
      server: https://kubernetes.default.svc
      namespace: argocd
-#    syncPolicy:
-#      automated:
-#        prune: false
-#        selfHeal: false
-#      syncOptions:
-#      - CreateNamespace=true
+   syncPolicy:
+     automated:
+       prune: true
+       selfHeal: true
+     syncOptions:
+     - CreateNamespace=true
 #    revisionHistoryLimit: null
 #    ignoreDifferences:
 #    - group: apps

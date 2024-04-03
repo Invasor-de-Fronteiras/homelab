@@ -1,13 +1,7 @@
 apps:
-  - name: traefik
+  - name: whoami
     source:
-      releaseName: traefik
+      releaseName: whoami
       targetRevision: HEAD
-      url: https://github.com/tsugami/homelab.git
-      path: ./apps/traefik
-  - name: argocd
-    source:
-      releaseName: argocd
-      targetRevision: HEAD
-      url: https://github.com/tsugami/homelab.git
-      path: ./apps/argocd
+      url: https://github.com/Invasor-de-Fronteiras/homelab.git
+      path: ./apps/whoami

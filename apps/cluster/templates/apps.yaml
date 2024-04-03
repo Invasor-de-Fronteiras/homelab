@@ -13,26 +13,26 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    # helm:
-    #   releaseName: {{ .source.releaseName }}
-    #   values: |-
-    #     waves:
-    #       project: 100
-    #       rootApplication: 200
-    #       namespace: 300
-    #       application: 400
-    #   valueFiles: 
-    #     - values.yaml
-    repoURL: {{ .source.repoURL }}
+    helm:
+      releaseName: {{ .source.releaseName }}
+      values: |-
+        waves:
+          project: 100
+          rootApplication: 200
+          namespace: 300
+          application: 400
+      valueFiles: 
+        - values.yaml
+    repoURL: {{ .source.url }}
     targetRevision: {{ .source.targetRevision }}
     path: {{ .source.path }}
-#   syncPolicy:
-#     automated:
-#       prune: true
-#       selfHeal: true
-#     retry:
-#       limit: 3
-#       backoff:
-#         duration: 15s
-#         factor: 1
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    retry:
+      limit: 3
+      backoff:
+        duration: 15s
+        factor: 1
 {{- end }}    

@@ -15,14 +15,14 @@ spec:
   source:
     helm:
       releaseName: {{ .source.releaseName }}
-      values: |-
-        waves:
-          project: 100
-          rootApplication: 200
-          namespace: 300
-          application: 400
-      valueFiles: 
-        - values.yaml
+    #   values: |-
+    #     waves:
+    #       project: 100
+    #       rootApplication: 200
+    #       namespace: 300
+    #       application: 400
+    #   valueFiles: 
+    #     - values.yaml
     repoURL: {{ .source.repoURL }}
     targetRevision: {{ .source.targetRevision }}
     path: {{ .source.path }}

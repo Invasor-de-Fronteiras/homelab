@@ -5,3 +5,9 @@ apps:
       targetRevision: HEAD
       url: https://github.com/Invasor-de-Fronteiras/homelab.git
       path: ./apps/whoami
+  - name: argocd
+    source:
+      releaseName: argocd
+      targetRevision: HEAD
+      url: https://github.com/Invasor-de-Fronteiras/homelab.git
+      path: ./apps/argocd

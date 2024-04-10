@@ -11,3 +11,9 @@ apps:
       targetRevision: HEAD
       url: https://github.com/Invasor-de-Fronteiras/homelab.git
       path: ./apps/argocd
+  - name: cloudflare-tunnel
+    source:
+      releaseName: cloudflare-tunnel
+      targetRevision: HEAD
+      url: https://github.com/Invasor-de-Fronteiras/homelab.git
+      path: ./apps/cloudflare-tunnel

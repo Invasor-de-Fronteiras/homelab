@@ -52,7 +52,7 @@ spec:
     - websecure
     - web
   routes:
-    - match: Host(`argocd.arcamh.com`)
+    - match: Host(`whoami.arcamh.com`)
       kind: Rule
       services:
         - name: whoami

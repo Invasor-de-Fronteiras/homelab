@@ -8,7 +8,7 @@ spec:
     - web
   routes:             
   - kind: Rule
-    match: Host(`argocd.infra.arcamh.com`)
+    match: Host(`argocd.arcamh.com`)
     services:
     - kind: Service
       name: argocd-server

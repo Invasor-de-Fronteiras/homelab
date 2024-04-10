@@ -1,4 +1,4 @@
-apiVersion:  traefik.containo.us/v1alpha1
+apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: argocd-server
@@ -20,8 +20,7 @@ spec:
       priority: 11
       services:
         - name: argocd-server
-          namespace: argocd
           port: 80
           scheme: h2c
-  # tls:
-  #   certResolver: default
+  tls:
+    certResolver: default

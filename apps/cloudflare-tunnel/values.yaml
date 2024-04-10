@@ -1,0 +1,2 @@
+cloudflare:
+  secret: "tunnel-credentials"

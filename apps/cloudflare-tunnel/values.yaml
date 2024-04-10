@@ -1,2 +1,3 @@
-cloudflare:
-  tunnelName: 'arcamh.com'
+cloudflare-tunnel:
+  cloudflare:
+    tunnelName: 'arcamh.com'

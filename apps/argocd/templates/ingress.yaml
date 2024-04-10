@@ -9,13 +9,13 @@ spec:
     - web
   routes:
     - kind: Rule
-      match: Host(`argocd.arcamh.com`)
+      match: Host(`argocd.arcamh.com`) || Host(`argocd.infra.arcamh.com`)
       priority: 10
       services:
         - name: argocd-server
           port: 80
     - kind: Rule
-      match: Host(`argocd.arcamh.com`) && Headers(`Content-Type`, `application/grpc`)
+      match: (Host(`argocd.arcamh.com`) || Host(`argocd.infra.arcamh.com`)) && Headers(`Content-Type`, `application/grpc`)
       priority: 11
       services:
         - name: argocd-server

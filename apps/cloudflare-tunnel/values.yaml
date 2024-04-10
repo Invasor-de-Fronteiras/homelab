@@ -5,7 +5,7 @@ cloudflare-tunnel:
       - hostname: 'argocd.infra.arcamh.com'
         service: http://traefik.kube-system.svc
       - hostname: 'argocd.arcamh.com'
-        service: http://traefik.kube-system.svc
+        service: http://argocd.argocd-server:80
       # The first rule proxies traffic to the httpbin sample service named web-server at port 80
       # - hostname: tunnel.example.com
       #  service:http://{service}.{namespace}.svc

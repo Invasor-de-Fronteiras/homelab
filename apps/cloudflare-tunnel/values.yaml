@@ -1,2 +1,2 @@
 cloudflare:
-  secretName: "tunnel-credentials"
+  tunnelName: 'arcamh.com'

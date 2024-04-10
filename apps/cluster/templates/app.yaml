@@ -7,7 +7,6 @@ metadata:
   namespace: "argocd"
   annotations:
     argocd.argoproj.io/sync-wave: "200"
-    
 spec:
   destination:
     namespace: {{ .destination.namespace }}
@@ -17,8 +16,6 @@ spec:
     helm:
       releaseName: {{ .source.releaseName }}
       values: |-
-        cloudflare:
-          tunnelName: teste
         waves:
           project: 100
           rootApplication: 200

@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 spec:
   entryPoints:
-    - web
+    - webscure
   routes:             
   - kind: Rule
     match: Host(`argocd.arcamh.com`)

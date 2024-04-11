@@ -4,8 +4,3 @@ argocd:
   configs:
     params:
       server.insecure: true
-  logs:
-  general:
-    level: DEBUG
-  access:
-    enabled: true

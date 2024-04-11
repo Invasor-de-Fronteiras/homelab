@@ -35,4 +35,6 @@ spec:
       backoff:
         duration: 15s
         factor: 1
+    syncOptions:
+      - CreateNamespace=true
 {{- end }}    

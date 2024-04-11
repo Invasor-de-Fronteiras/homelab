@@ -4,4 +4,4 @@ version: 1.0.0
 dependencies:
   - name: traefik
     version: 27.0.0
-    repository:  traefik/traefik
+    repository: https://traefik.github.io/charts

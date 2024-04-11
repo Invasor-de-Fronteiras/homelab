@@ -33,4 +33,4 @@ apps:
       url: https://github.com/Invasor-de-Fronteiras/homelab.git
       path: ./apps/traefik
     destination:
-      namespace: traefik
+      namespace: kube-system

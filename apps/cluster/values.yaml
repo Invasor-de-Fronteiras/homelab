@@ -26,3 +26,11 @@ apps:
       path: ./apps/cloudflare-tunnel
     destination:
       namespace: cloudflare-tunnel
+  - name: cloudflare-tunnel
+    source:
+      releaseName: traefik
+      targetRevision: HEAD
+      url: https://github.com/Invasor-de-Fronteiras/homelab.git
+      path: ./apps/traefik
+    destination:
+      namespace: traefik

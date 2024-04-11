@@ -4,3 +4,8 @@ traefik:
       level: DEBUG
     access:
       enabled: true
+
+  tlsStore:
+    default:
+      defaultCertificate:
+        secretName: k3s-serving

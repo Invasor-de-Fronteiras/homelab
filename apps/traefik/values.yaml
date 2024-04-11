@@ -5,7 +5,7 @@ traefik:
     access:
       enabled: true
 
-  tlsStore:
-    default:
-      defaultCertificate:
-        secretName: k3s-serving
+  # tlsStore:
+  #   default:
+  #     defaultCertificate:
+  #       secretName: k3s-serving

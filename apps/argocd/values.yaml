@@ -4,3 +4,5 @@ argocd:
   configs:
     params:
       server.insecure: true
+    cm:
+      create: false

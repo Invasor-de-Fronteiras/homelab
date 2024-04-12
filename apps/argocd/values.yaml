@@ -7,13 +7,7 @@ argo-cd:
     params:
       server.insecure: true
     cm:
-      create: true
       url: http://argocd.arcamh.com
-      statusbadge.enabled: "true"
-      statusbadge.url: "https://cd-status.apps.argoproj.io/"
-      users.anonymous.enabled: "false"
-      admin.enabled: "true"
-      users.session.duration: "24h"
       dex.config: |
         connectors:
           - type: github

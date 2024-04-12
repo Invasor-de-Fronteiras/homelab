@@ -7,6 +7,8 @@ metadata:
   namespace: "argocd"
   annotations:
     argocd.argoproj.io/sync-wave: "200"
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
     namespace: {{ .destination.namespace }}
@@ -33,8 +35,9 @@ spec:
     retry:
       limit: 3
       backoff:
-        duration: 15s
+        duration: 5s
         factor: 1
+        maxDuration: 1m
     syncOptions:
       - CreateNamespace=true
 {{- end }}    

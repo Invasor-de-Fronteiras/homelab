@@ -1,6 +1,6 @@
 argocd:
   global:
-    domain: https://argocd.arcamh.com
+    domain: http://argocd.arcamh.com
   configs:
     params:
       server.insecure: true

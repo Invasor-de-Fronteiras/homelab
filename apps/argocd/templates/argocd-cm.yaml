@@ -23,3 +23,7 @@ data:
           clientSecret: $dex.github.clientSecret
           orgs:
           - name: Invasor-de-Fronteiras
+          scopes:
+          - profile
+          - email
+          - groups

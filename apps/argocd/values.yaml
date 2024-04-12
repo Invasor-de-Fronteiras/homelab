@@ -1,5 +1,7 @@
 argocd:
-  # global:
+  global:
+    logging:
+      level: debug
   #   domain: http://argocd.arcamh.com
   configs:
     params:

@@ -7,7 +7,7 @@ metadata:
     app.kubernetes.io/name: argocd-cm
     app.kubernetes.io/part-of: argocd
 data:
-  url: {{ .Values.argocd.global.domain }}
+#   url: {{ .Values.argocd.global.domain }}
   statusbadge.enabled: "true"
   statusbadge.url: "https://cd-status.apps.argoproj.io/"
   users.anonymous.enabled: "false"

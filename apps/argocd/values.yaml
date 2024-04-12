@@ -1,8 +1,8 @@
-argocd:
+argo-cd:
   global:
     logging:
       level: debug
-  #   domain: http://argocd.arcamh.com
+    domain: http://argocd.arcamh.com
   configs:
     params:
       server.insecure: true

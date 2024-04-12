@@ -7,4 +7,24 @@ argo-cd:
     params:
       server.insecure: true
     cm:
-      create: false
+      create: true
+      url: http://argocd.arcamh.com
+      statusbadge.enabled: "true"
+      statusbadge.url: "https://cd-status.apps.argoproj.io/"
+      users.anonymous.enabled: "false"
+      admin.enabled: "true"
+      users.session.duration: "24h"
+      dex.config: |
+        connectors:
+          - type: github
+            id: github
+            name: GitHub
+            config:
+              clientID: aa545d98348387861211
+              clientSecret: $dex.github.clientSecret
+              orgs:
+              - name: Invasor-de-Fronteiras
+              scopes:
+              - profile
+              - email
+              - groups

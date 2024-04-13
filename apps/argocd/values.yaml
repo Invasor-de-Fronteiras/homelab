@@ -9,12 +9,12 @@ application:
   global:
     logging:
       level: debug
-    domain: http://argocd.arcamh.com
+    domain: https://argocd.arcamh.com
   configs:
     params:
       server.insecure: true
     cm:
-      url: http://argocd.arcamh.com
+      url: https://argocd.arcamh.com
       dex.config: |
         connectors:
           - type: github

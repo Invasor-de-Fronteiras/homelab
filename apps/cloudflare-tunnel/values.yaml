@@ -4,4 +4,4 @@ cloudflare-tunnel:
     secretName: tunnel-credentials
     ingress:
       - hostname: '*.arcamh.com'
-        service: http://traefik.traefik.svc
+        service: http://traefik-root-app.traefik.svc

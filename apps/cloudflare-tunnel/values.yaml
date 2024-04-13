@@ -1,5 +1,6 @@
 cloudflare-tunnel:
   cloudflare:
+    tunnelName: 'arcamh.com'
     secretName: tunnel-credentials
     ingress:
       - hostname: '*.arcamh.com'

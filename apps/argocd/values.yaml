@@ -22,7 +22,7 @@ application:
             name: GitHub
             config:
               clientID: aa545d98348387861211
-              clientSecret: $dex.github.clientSecret
+              clientSecret: $argocd-dex-secret:dex.github.clientSecret
               orgs:
               - name: Invasor-de-Fronteiras
               scopes:

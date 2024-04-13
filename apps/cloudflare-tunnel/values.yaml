@@ -1,14 +1,6 @@
 cloudflare-tunnel:
-  cloudflare:
-    tunnelName: 'arcamh.com'
+  cloudflared:
+    tunnelSecret: tunnel-credentials
     ingress:
       - hostname: '*.arcamh.com'
         service: http://traefik.traefik.svc
-      # The first rule proxies traffic to the httpbin sample service named web-server at port 80
-      # - hostname: tunnel.example.com
-      #  service:http://{service}.{namespace}.svc
-      # This rule sends traffic to the built-in hello-world HTTP server. This can help debug connectivity
-      # issues. If hello.example.com resolves and tunnel.example.com does not, then the problem is
-      # in the connection from cloudflared to your local service, not from the internet to cloudflared.
-      # - hostname: hello.example.com
-      #   service: hello_world

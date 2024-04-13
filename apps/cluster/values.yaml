@@ -10,14 +10,14 @@ apps:
       path: ./apps/whoami
     destination:
       namespace: argocd
-  - name: argocd
-    source:
-      releaseName: argocd
-      targetRevision: HEAD
-      url: https://github.com/Invasor-de-Fronteiras/homelab.git
-      path: ./apps/argocd
-    destination:
-      namespace: argocd
+  # - name: argocd
+  #   source:
+  #     releaseName: argocd
+  #     targetRevision: HEAD
+  #     url: https://github.com/Invasor-de-Fronteiras/homelab.git
+  #     path: ./apps/argocd
+  #   destination:
+  #     namespace: argocd
   - name: cloudflare-tunnel
     source:
       releaseName: cloudflare-tunnel

@@ -1,0 +1,45 @@
+projects:
+  master:
+    namespace: argocd
+    description: "ArgoCD Master Project for the homelab"
+    destinations:
+    - namespace: argocd
+      server: https://kubernetes.default.svc
+    finalizers:
+    - resources-finalizer.argocd.argoproj.io
+
+applicationsets:
+  homelab:
+    generators:
+    - git:
+        repoURL: https://github.com/Invasor-de-Fronteiras/homelab.git
+        revision: HEAD
+        directories:
+          - path: apps/argocd
+    template:
+      metadata:
+        name: '{{path.basename}}-root-app'
+      spec:
+        project: default
+        source:
+          helm:
+            values: |-
+              waves:
+                project: 100
+                rootApplication: 200
+                namespace: 300
+                application: 400
+            valueFiles: 
+              - values.yaml
+          repoURL: https://github.com/Invasor-de-Fronteiras/homelab.git
+          targetRevision: HEAD
+          path: '{{path}}'
+        destination:
+          server: https://kubernetes.default.svc
+          namespace: '{{path.basename}}'
+        syncPolicy:
+          automated:
+            prune: true
+            selfHeal: false
+          syncOptions:
+            - CreateNamespace=true

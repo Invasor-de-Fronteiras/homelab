@@ -11,9 +11,14 @@ application:
       level: debug
     domain: https://argocd.arcamh.com
   configs:
+    rbac:
+      "policy.csv": |
+        p, role:admin, exec, create, */*, allow
+        g, Invasor-de-Fronteiras:devops, role:admin
     params:
       server.insecure: true
     cm:
+      exec.enabled: true
       url: https://argocd.arcamh.com
       dex.config: |
         connectors:

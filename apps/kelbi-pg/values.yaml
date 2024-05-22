@@ -1,2 +1,4 @@
 postgresql:
-  primary.persistentVolumeClaimRetentionPolicy.enabled: true
+  primary:
+    persistentVolumeClaimRetentionPolicy:
+      enabled: true

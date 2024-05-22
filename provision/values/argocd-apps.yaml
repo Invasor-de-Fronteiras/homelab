@@ -15,10 +15,7 @@ applicationsets:
         repoURL: https://github.com/Invasor-de-Fronteiras/homelab.git
         revision: HEAD
         directories:
-          - path: apps/argocd
-          - path: apps/whoami
-          - path: apps/traefik
-          - path: apps/cloudflare-tunnel
+          - path: apps/**
     template:
       metadata:
         name: '{{path.basename}}-root-app'

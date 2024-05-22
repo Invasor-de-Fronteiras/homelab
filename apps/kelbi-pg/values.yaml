@@ -1,1 +1,3 @@
-postgresql: {}
+postgresql:
+  global:
+    storageClass: kelbi-pg

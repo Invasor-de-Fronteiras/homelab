@@ -11,6 +11,8 @@ application:
       level: debug
     domain: https://argocd.arcamh.com
   configs:
+    secret:
+      githubSecret:
     rbac:
       "policy.csv": |
         p, role:admin, exec, create, */*, allow

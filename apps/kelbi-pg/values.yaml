@@ -1,4 +1,8 @@
 postgresql:
   primary:
+    persistence:
+      labels:
+        app: kelbi-pg-volume
+      storageClass: kelbi-pg-sc
     persistentVolumeClaimRetentionPolicy:
-      enabled: true
+      enabled: false

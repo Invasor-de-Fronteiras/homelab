@@ -1,6 +1,1 @@
-postgresql:
-  volumePermissions:
-    enabled: true
-  primary:
-    persistence:
-      existingClaim: kelbi-pg-volume-claim
+postgresql: {}

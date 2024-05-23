@@ -12,3 +12,4 @@ spec:
     - ReadWriteMany
   hostPath:
     path: /data/postgresql
+    type: DirectoryOrCreate

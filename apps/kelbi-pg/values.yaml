@@ -3,6 +3,4 @@ postgresql:
     enabled: true
   primary:
     persistence:
-      selector:
-        matchLabels:
-          app: kelbi-pg
+      existingClaim: kelbi-pg-volume-claim

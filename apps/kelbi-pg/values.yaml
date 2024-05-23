@@ -1,4 +1,5 @@
 postgresql:
+  nameOverride: kelbi-pg-dev
   global:
     postgresql:
       auth:

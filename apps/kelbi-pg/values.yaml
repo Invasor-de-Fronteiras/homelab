@@ -4,6 +4,7 @@ postgresql:
     postgresql:
       auth:
         username: kelbi
+        database: kelbi
   primary:
     service:
       type: LoadBalancer

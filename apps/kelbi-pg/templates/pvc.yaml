@@ -5,7 +5,7 @@ metadata:
   labels:
     app: kelbi-pg
 spec:
-  storageClassName: kelbi-pg-local
+  storageClassName: local-path
   accessModes:
     - ReadWriteMany
   resources:

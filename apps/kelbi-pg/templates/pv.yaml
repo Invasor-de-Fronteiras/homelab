@@ -3,7 +3,7 @@ kind: PersistentVolume
 metadata:
   name: kelbi-pg-volume
   labels:
-    app: kelbi-pg-volume
+    app: kelbi-pg
 spec:
   storageClassName: local-path
   capacity:

@@ -1,4 +1,8 @@
 postgresql:
+  global:
+    postgresql:
+      auth:
+        username: kelbi
   primary:
     service:
       type: LoadBalancer

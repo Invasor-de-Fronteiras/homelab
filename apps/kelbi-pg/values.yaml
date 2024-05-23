@@ -1,4 +1,6 @@
 postgresql:
+  volumePermissions:
+    enabled: true
   primary:
     persistence:
       selector:

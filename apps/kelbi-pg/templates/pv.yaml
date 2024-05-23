@@ -5,7 +5,7 @@ metadata:
   labels:
     app: kelbi-pg
 spec:
-  storageClassName: local-path
+  storageClassName: manual
   capacity:
     storage: 8Gi
   accessModes:

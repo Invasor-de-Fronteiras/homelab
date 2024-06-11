@@ -2,7 +2,7 @@ namespace:
   name: filebrowser
 
 service:
-  type: ClusterIp
+  type: ClusterIP
   port: 80
 
 volumes:

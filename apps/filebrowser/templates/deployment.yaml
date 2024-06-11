@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: 
+  name: {{ .Values.namespace.name }}-app
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Values.namespace.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.namespace.name }}
+    spec:
+      volumes:
+{{ toYaml .Values.volumes | indent 8 }}
+      containers:
+        - name: filebrowser
+          image:  filebrowser/filebrowser
+          volumeMounts:
+{{ toYaml .Values.volumeMounts | indent 12 }}

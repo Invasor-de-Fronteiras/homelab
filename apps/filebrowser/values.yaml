@@ -1,0 +1,15 @@
+namespace:
+  name: filebrowser
+
+service:
+  type: ClusterIp
+  port: 80
+
+volumes:
+  - name: "bin"
+    hostPath:
+      path: "/root/volumes"
+      type: Directory
+volumeMounts:
+  - name: "bin"
+    mountPath: "/srv"

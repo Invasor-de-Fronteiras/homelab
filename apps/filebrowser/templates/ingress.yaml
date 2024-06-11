@@ -1,0 +1,17 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: {{ .Values.namespace.name }}-server
+  namespace: filebrowser
+spec:
+  entryPoints:
+    - websecure
+    - web
+  routes:
+    - kind: Rule
+      match: Host(`filebrowser.arcamh.com`)
+      priority: 10
+      services:
+        - name: {{ .Values.namespace.name }}
+          namespace: filebrowser
+          port: 80

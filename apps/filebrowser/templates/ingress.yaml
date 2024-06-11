@@ -12,6 +12,6 @@ spec:
       match: Host(`filebrowser.arcamh.com`)
       priority: 10
       services:
-        - name: {{ .Values.namespace.name }}
+        - name: {{ .Values.namespace.name }}-service
           namespace: filebrowser
           port: 80

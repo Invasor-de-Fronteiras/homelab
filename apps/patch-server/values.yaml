@@ -1,4 +1,4 @@
-namespace: patchserver
+namespace: patch-server
 name: patchserver
 
 nginx:

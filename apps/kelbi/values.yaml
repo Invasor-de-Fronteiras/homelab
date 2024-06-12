@@ -1,0 +1,3 @@
+kelbi:
+  postgresql:
+    enabled: false

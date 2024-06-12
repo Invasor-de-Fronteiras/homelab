@@ -1,3 +1,4 @@
 kelbi:
-  postgresql:
-    enabled: false
+  kelbi:
+    postgresql:
+      enabled: false

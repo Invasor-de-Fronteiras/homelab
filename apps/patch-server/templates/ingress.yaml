@@ -10,7 +10,7 @@ spec:
   routes:
     {{- range $serverIndex, $server := .Values.patchservers }}
     - kind: Rule
-      match: Host(`{{ $server.ingress.host }}`)
+      match: Host(`{{ $server.ingress.host }}`) && PathPrefix(`{{ $server.ingress.path }}`)
       priority: 10
       services:
         - name: {{ $.Values.name }}-{{ $server.name }}-service

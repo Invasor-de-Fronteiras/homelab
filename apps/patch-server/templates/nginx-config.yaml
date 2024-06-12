@@ -14,7 +14,7 @@ data:
         access_log /var/log/nginx/project_access.log;
 
         location /en/teste {
-            root /var/www/html;
+            alias /var/www/html/;
             index index.html;
         }
 

@@ -13,7 +13,7 @@ data:
         error_log /var/log/nginx/project_error.log;
         access_log /var/log/nginx/project_access.log;
 
-        location /teste {
+        location /en/teste {
             root /var/www/html;
             index index.html;
         }

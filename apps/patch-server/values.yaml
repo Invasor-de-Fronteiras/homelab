@@ -1,0 +1,42 @@
+namespace: patchserver
+name: patchserver
+
+nginx:
+  image:
+    repository: "nginx"
+    tag: "alpine"
+
+patchserver:
+  image:
+    repository: "ghcr.io/invasor-de-fronteiras/gogomoa-patch-server"
+    tag: "v1.0.1"
+
+patchservers:
+  - name: en
+    service:
+      type: ClusterIP
+      port: 80
+    ingress:
+      host: "patchserver.arcamh.com/en"
+    volumes:
+      - name: "bin"
+        hostPath:
+          path: "/root/volumes/patch_server/en"
+          type: Directory
+    volumeMounts:
+      - name: "bin"
+        mountPath: "/var/www/html"
+  - name: jp
+    service:
+      type: ClusterIP
+      port: 80
+    ingress:
+      host: "patchserver.arcamh.com/jp"
+    volumes:
+      - name: "bin"
+        hostPath:
+          path: "/root/volumes/patch_server/jp"
+          type: Directory
+    volumeMounts:
+      - name: "bin"
+        mountPath: "/var/www/html"

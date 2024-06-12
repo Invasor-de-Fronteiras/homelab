@@ -1,0 +1,35 @@
+{{- $values := .Values -}}
+{{- range $serverIndex, $server := .Values.patchservers }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $values.name }}-{{ $server.name }}-app
+  namespace: {{ .Values.namespace }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ $values.name }}-{{ $server.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ $values.name }}-{{ $server.name }}
+    spec:
+      volumes:
+        - name: nginx-config-volume
+          configMap:
+            name: nginx-config
+{{ toYaml $server.volumes | indent 8 }}
+      containers:
+        - name: nginx
+          image: "{{ $values.nginx.image.repository }}:{{ $values.nginx.image.tag }}"
+          volumeMounts:
+            - name: nginx-config-volume
+              mountPath: /etc/nginx/conf.d/default.conf
+              subPath: default.conf
+{{ toYaml $server.volumeMounts | indent 12 }}
+        - name: patch-server
+          image: "{{ $values.patchserver.image.repository }}:{{ $values.patchserver.image.tag }}"
+          volumeMounts:
+{{ toYaml $server.volumeMounts | indent 12 }}
+{{- end -}}

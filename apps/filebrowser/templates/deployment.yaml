@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: 
+  namespace: filebrowser
   name: {{ .Values.namespace.name }}-app
 spec:
   selector:

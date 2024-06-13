@@ -18,7 +18,7 @@ patchservers:
       type: ClusterIP
       port: 80
     ingress:
-      host: "patchserver.arcamh.com"
+      host: "en-patch.arcamh.com"
       path: "/en"
     volumes:
       - name: "bin"
@@ -33,7 +33,7 @@ patchservers:
       type: ClusterIP
       port: 80
     ingress:
-      host: "patchserver.arcamh.com"
+      host: "jp-patch.arcamh.com"
       path: "/jp"
     volumes:
       - name: "bin"

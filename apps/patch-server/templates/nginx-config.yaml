@@ -16,7 +16,7 @@ data:
         location ~ ^/(en|jp)/ {
             rewrite ^/(en|jp)/(.*)$ /$2 break;
 
-            location / {
+            location ~ ^/$ {
                 try_files $uri /index.php$is_args$args;
             }
 
@@ -34,7 +34,7 @@ data:
 
                 internal;
             }
-            
+
             location ~ \.php$ {
                 try_files $uri =404;
                 fastcgi_split_path_info ^(.+\.php)(/.+)$;

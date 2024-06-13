@@ -19,8 +19,6 @@ spec:
         - name: nginx-config-volume
           configMap:
             name: nginx-config
-        - name: php-sock
-          emptyDir: {}
 {{ toYaml $server.volumes | indent 8 }}
       containers:
         - name: nginx
@@ -29,13 +27,8 @@ spec:
             - name: nginx-config-volume
               mountPath: /etc/nginx/conf.d/default.conf
               subPath: default.conf
-            - name: php-sock
-              mountPath: /var/run/php
 {{ toYaml $server.volumeMounts | indent 12 }}
         - name: patch-server
           image: "{{ $values.patchserver.image.repository }}:{{ $values.patchserver.image.tag }}"
-          volumeMounts:
-            - name: php-sock
-              mountPath: /var/run/php
 {{ toYaml $server.volumeMounts | indent 12 }}
 {{- end -}}

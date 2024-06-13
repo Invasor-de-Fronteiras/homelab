@@ -30,5 +30,6 @@ spec:
 {{ toYaml $server.volumeMounts | indent 12 }}
         - name: patch-server
           image: "{{ $values.patchserver.image.repository }}:{{ $values.patchserver.image.tag }}"
+          volumeMounts:
 {{ toYaml $server.volumeMounts | indent 12 }}
 {{- end -}}

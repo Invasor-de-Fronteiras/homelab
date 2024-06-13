@@ -13,10 +13,6 @@ data:
         error_log /var/log/nginx/project_error.log;
         access_log /var/log/nginx/project_access.log;
 
-        location / {
-            try_files $uri /index.php$is_args$args;
-        }
-
         location ~ ^/index\\.php(/|$) {
             fastcgi_pass localhost:9000;
             fastcgi_split_path_info ^(.+\\.php)(/.*)$;
@@ -43,5 +39,9 @@ data:
 
         location ~ \\.php$ {
             return 404;
+        }
+
+        location / {
+            try_files $uri /index.php$is_args$args;
         }
     }

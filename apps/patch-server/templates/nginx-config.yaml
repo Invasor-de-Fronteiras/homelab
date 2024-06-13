@@ -14,7 +14,7 @@ data:
         access_log /var/log/nginx/project_access.log;
 
         location ~ ^/(en|jp)/ {
-            rewrite ^/(en|jp)/(.*)$ /$2 break;
+            rewrite ^/(en|jp)/(.*)$ /$2$is_args$args;
 
             location ~ ^/$ {
                 try_files $uri /index.php$is_args$args;

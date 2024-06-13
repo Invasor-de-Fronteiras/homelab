@@ -14,7 +14,7 @@ data:
         access_log /var/log/nginx/project_access.log;
 
         location ~ ^/(en|jp)/ {
-            rewrite ^/(en|jp)/(.*)$ /$2$is_args$args;
+            rewrite ^/(en|jp)/(.*)$ /$2$is_args$args permanent;
 
             location ~ ^/$ {
                 try_files $uri /index.php$is_args$args;
@@ -44,7 +44,7 @@ data:
                 fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
             }
 
-             location ~ \\.php$ {
+            location ~ \\.php$ {
                 return 404;
             }
         }

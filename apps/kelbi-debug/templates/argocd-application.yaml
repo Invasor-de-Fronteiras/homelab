@@ -17,6 +17,8 @@ spec:
     helm:
       release: kelbi-debug
       valuesObject:
+        global:
+          secretName: debug-kelbi-database-secret
         postgresql:
           enabled: false
         entriesServer:

@@ -15,7 +15,8 @@ spec:
     targetRevision: HEAD
     path: charts/kelbi
     helm:
-      values: |
+      release: kelbi-debug
+      valuesObject:
         postgresql:
           enabled: false
   syncPolicy:

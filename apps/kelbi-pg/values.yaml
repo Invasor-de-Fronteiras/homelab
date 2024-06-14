@@ -1,11 +1,3 @@
 postgresql:
   nameOverride: kelbi-pg-dev
-  global:
-    postgresql:
-      auth:
-        username: kelbi
-        database: kelbi
-        password: kelbi
-  primary:
-    service:
-      type: LoadBalancer
+  

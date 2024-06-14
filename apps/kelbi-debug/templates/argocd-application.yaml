@@ -19,6 +19,15 @@ spec:
       valuesObject:
         postgresql:
           enabled: false
+        entriesServer:
+          volumes:
+            - name: "bin"
+              hostPath:
+                path: "/root/volumes"
+                type: Directory
+          volumeMounts:
+            - name: "bin"
+              mountPath: "/srv"
   syncPolicy:
     automated: 
       prune: true

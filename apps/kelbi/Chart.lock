@@ -1,0 +1,6 @@
+dependencies:
+- name: kelbi
+  repository: https://invasor-de-fronteiras.github.io/helm-charts
+  version: 1.0.0
+digest: sha256:5b08f1b3fbe4a74e5c1de81916c27769893d54e13d0eed9fa651ad5c017c5de4
+generated: "2024-06-11T22:07:36.331161134-03:00"

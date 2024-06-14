@@ -13,7 +13,7 @@ spec:
   source:
     repoURL: https://github.com/Invasor-de-Fronteiras/helm-charts
     targetRevision: HEAD
-    path: /charts/kelbi
+    path: charts/kelbi
     helm:
       values: |
         postgresql:

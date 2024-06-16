@@ -19,6 +19,7 @@ spec:
       valuesObject:
         global:
           secretName: debug-kelbi-database-secret
+          host: 89.116.225.172
         postgresql:
           enabled: false
         entriesServer:

@@ -22,6 +22,10 @@ spec:
           host: 89.116.225.172
         postgresql:
           enabled: false
+        launcherServer:
+          image:
+            repository: "ghcr.io/invasor-de-fronteiras/kelbi"
+            tag: "v1.2.3"
         entriesServer:
           volumes:
             - name: "bin"

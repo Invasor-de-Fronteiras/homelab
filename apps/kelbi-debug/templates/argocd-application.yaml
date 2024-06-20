@@ -29,11 +29,11 @@ spec:
           volumes:
             - name: "bin"
               hostPath:
-                path: "/root/volumes"
+                path: "/root/volumes/bin"
                 type: Directory
           volumeMounts:
             - name: "bin"
-              mountPath: "/srv"
+              mountPath: "/app/bin"
   syncPolicy:
     automated: 
       prune: true

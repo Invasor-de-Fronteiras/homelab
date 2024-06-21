@@ -2,7 +2,7 @@ apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
   name: kelbi-launcherserver-ingress
-  namespace: kelbi-debug
+  namespace: kelbi
 spec:
   entryPoints:
     - websecure
@@ -13,5 +13,5 @@ spec:
       priority: 10
       services:
         - name: kelbi-launcherserver
-          namespace: kelbi-debug
+          namespace: kelbi
           port: 80

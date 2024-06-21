@@ -1,13 +1,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kelbi-debug-app
+  name: kelbi-app
   namespace: "argocd"
   annotations:
     argocd.argoproj.io/sync-wave: "200"
 spec:
   destination:
-    namespace: "kelbi-debug"
+    namespace: "kelbi"
     server: https://kubernetes.default.svc
   project: "default"
   source:
@@ -15,10 +15,10 @@ spec:
     targetRevision: HEAD
     path: charts/kelbi
     helm:
-      release: kelbi-debug
+      release: kelbi
       valuesObject:
         global:
-          secretName: debug-kelbi-database-secret
+          secretName: kelbi-database-secret
           host: 89.116.225.172
         postgresql:
           enabled: false

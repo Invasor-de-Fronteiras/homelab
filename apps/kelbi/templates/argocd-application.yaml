@@ -22,6 +22,9 @@ spec:
           host: 89.116.225.172
         postgresql:
           enabled: false
+        launcherServer:
+          service:
+            type: ClusterIP
         patchServer:
           en: "en-patch.arcamh.com"
           jp: "jp-patch.arcamh.com"

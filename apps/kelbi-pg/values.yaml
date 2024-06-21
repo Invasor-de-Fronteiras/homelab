@@ -1,3 +1,4 @@
 postgresql:
   nameOverride: kelbi-pg-dev
-  
+  auth:
+    postgresPassword: "kelbi"

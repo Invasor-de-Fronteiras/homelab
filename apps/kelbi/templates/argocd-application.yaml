@@ -26,12 +26,12 @@ spec:
           service:
             type: ClusterIP
           volumes:
-            - name: "gacha_shop"
+            - name: "gacha-shop"
               hostPath:
                 path: "/root/volumes/gacha_shop"
                 type: Directory
           volumeMounts:
-            - name: "gacha_shop"
+            - name: "gacha-shop"
               mountPath: "/app/www/kelbi/build/gacha_shop"
         patchServer:
           en: "en-patch.arcamh.com"

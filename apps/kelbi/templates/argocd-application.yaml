@@ -25,6 +25,14 @@ spec:
         launcherServer:
           service:
             type: ClusterIP
+          volumes:
+            - name: "gacha_shop"
+              hostPath:
+                path: "/root/volumes/gacha_shop"
+                type: Directory
+          volumeMounts:
+            - name: "gacha_shop"
+              mountPath: "/app/www/kelbi/build/gacha_shop"
         patchServer:
           en: "en-patch.arcamh.com"
           jp: "jp-patch.arcamh.com"

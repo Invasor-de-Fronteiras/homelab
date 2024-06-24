@@ -15,3 +15,10 @@ spec:
         - name: kelbi-launcherserver
           namespace: kelbi
           port: 80
+    - kind: Rule
+      match: Host(`sign.arcamh.com`)
+      priority: 10
+      services:
+        - name: kelbi-signserver
+          namespace: kelbi
+          port: 53312

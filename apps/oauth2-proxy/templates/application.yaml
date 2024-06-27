@@ -1,0 +1,12 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: oauth2-proxy
+spec:
+  project: default
+  source:
+    chart: oauth-proxy
+    targetRevision: 7.7.6
+    repoURL: "https://oauth2-proxy.github.io/manifests"
+  destination:
+    namespace: oauth2-proxy

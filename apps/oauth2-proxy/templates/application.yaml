@@ -11,9 +11,7 @@ spec:
     repoURL: "https://oauth2-proxy.github.io/manifests"
     helm:
       values: |
-        alphaConfig:
-          enabled: true
-          existingSecret: oauth2-proxy-secret
+        existingSecret: oauth2-proxy-secret
   destination:
     namespace: oauth2-proxy
     server: "https://kubernetes.default.svc"

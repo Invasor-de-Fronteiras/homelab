@@ -13,6 +13,8 @@ spec:
       values: |
         config:
           existingSecret: oauth2-proxy-secret
+          configFile: |
+            provider = "github"
   destination:
     namespace: oauth2-proxy
     server: "https://kubernetes.default.svc"

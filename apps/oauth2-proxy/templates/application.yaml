@@ -17,7 +17,13 @@ spec:
             provider = "github"
             email_domains = [ "*" ]
             redirect_url = "https://auth.arcamh.com/oauth2/callback"
-        extraArgs: [ "--github-org=Invasor-de-Fronteiras", "--reverse-proxy=true", "--pass-authorization-header=true", "--set-xauthrequest=true" ]
+        extraArgs: [
+          "--github-org=Invasor-de-Fronteiras",
+          "--reverse-proxy=true",
+          "--pass-authorization-header=true",
+          "--set-xauthrequest=true",
+          "skip-provider-button=true"
+        ]
   destination:
     namespace: oauth2-proxy
     server: "https://kubernetes.default.svc"

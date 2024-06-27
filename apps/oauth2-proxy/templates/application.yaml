@@ -17,9 +17,7 @@ spec:
             provider = "github"
             email_domains = [ "*" ]
             redirect_url = "https://auth.arcamh.com/oauth2/callback"
-          alphaConfig:
-            configData:
-              orgs: "Invasor-de-Fronteiras"
+          extraArgs: [ "--github-org=Invasor-de-Fronteiras" ]
   destination:
     namespace: oauth2-proxy
     server: "https://kubernetes.default.svc"

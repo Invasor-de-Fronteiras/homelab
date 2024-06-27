@@ -22,7 +22,8 @@ spec:
           "--reverse-proxy=true",
           "--pass-authorization-header=true",
           "--set-xauthrequest=true",
-          "skip-provider-button=true"
+          "skip-provider-button=true",
+          "--whitelist-domain=*.arcamh.com"
         ]
   destination:
     namespace: oauth2-proxy

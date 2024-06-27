@@ -11,3 +11,4 @@ spec:
     repoURL: "https://oauth2-proxy.github.io/manifests"
   destination:
     namespace: oauth2-proxy
+    server: "https://kubernetes.default.svc"

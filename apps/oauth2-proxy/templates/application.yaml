@@ -9,10 +9,11 @@ spec:
     chart: oauth2-proxy
     targetRevision: 7.7.6
     repoURL: "https://oauth2-proxy.github.io/manifests"
-  values: |
-    alphaConfig:
-      enabled: true
-      existingSecret: oauth2-proxy-secret
+    helm:
+      values: |
+        alphaConfig:
+          enabled: true
+          existingSecret: oauth2-proxy-secret
   destination:
     namespace: oauth2-proxy
     server: "https://kubernetes.default.svc"

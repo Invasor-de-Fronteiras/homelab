@@ -13,7 +13,6 @@ spec:
       priority: 10
       middlewares:
         - name: auth
-          namespace: traefik
       services:
         - name: {{ .Values.namespace.name }}-service
           namespace: filebrowser

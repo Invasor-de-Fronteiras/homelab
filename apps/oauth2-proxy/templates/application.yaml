@@ -15,6 +15,8 @@ spec:
           existingSecret: oauth2-proxy-secret
           configFile: |
             provider = "github"
+            email_domains = [ "*" ]
+            redirect_url = "https://auth.arcamh.com/oauth2/callback"
   destination:
     namespace: oauth2-proxy
     server: "https://kubernetes.default.svc"

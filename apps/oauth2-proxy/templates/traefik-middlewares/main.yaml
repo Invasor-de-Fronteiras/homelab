@@ -5,4 +5,4 @@ metadata:
   namespace: filebrowser
 spec:
   forwardAuth:
-    address: oauth2-proxy.oauth2-proxy.svc/oauth2/auth
+    address: http://oauth2-proxy.oauth2-proxy.svc/oauth2/auth

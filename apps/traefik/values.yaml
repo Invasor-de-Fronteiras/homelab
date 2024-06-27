@@ -1,3 +1,6 @@
+providers:
+  kubernetesCRD:
+    allowCrossNamespace: true
 traefik:
   logs:
     general:
@@ -7,3 +10,4 @@ traefik:
 
   tlsStore:
     default: {}
+

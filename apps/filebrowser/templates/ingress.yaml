@@ -11,8 +11,6 @@ spec:
     - kind: Rule
       match: Host(`filebrowser.arcamh.com`)
       priority: 10
-      middlewares:
-        - name: auth
       services:
         - name: {{ .Values.namespace.name }}-service
           namespace: filebrowser

@@ -13,6 +13,7 @@ spec:
       priority: 10
       middlewares:
         - name: auth
+          namespace: oauth2-proxy
       services:
         - name: {{ .Values.namespace.name }}-service
           namespace: filebrowser

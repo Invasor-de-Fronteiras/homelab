@@ -23,8 +23,6 @@ spec:
         postgresql:
           enabled: false
         launcherServer:
-          image:
-            tag: "v1.2.7"
           service:
             type: ClusterIP
           volumes:

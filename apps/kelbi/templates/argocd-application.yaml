@@ -33,6 +33,9 @@ spec:
           volumeMounts:
             - name: "gacha-shop"
               mountPath: "/app/www/kelbi/build/gacha_shop"
+        signServer:
+          image:
+            tag: "v1.2.7"
         patchServer:
           en: "en-patch.arcamh.com"
           jp: "jp-patch.arcamh.com"

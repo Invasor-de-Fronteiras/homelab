@@ -17,4 +17,4 @@ spec:
           port: 9100
       middlewares:
         - name: monitoring-allowlist
-          namespace: traefik
+          namespace: monitoring

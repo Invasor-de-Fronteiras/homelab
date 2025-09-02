@@ -8,6 +8,9 @@ traefik:
     access:
       enabled: true
 
+  api:
+    dashboard: true
+    insecure: true
   tlsStore:
     default: {}
 

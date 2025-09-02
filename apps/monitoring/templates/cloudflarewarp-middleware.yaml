@@ -1,0 +1,11 @@
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+    name: cloudflarewarp
+    namespace: monitoring
+spec:
+  plugin:
+    cloudflarewarp:
+      disableDefault: "false"
+      trustip:
+        - 2400:cb00::/32

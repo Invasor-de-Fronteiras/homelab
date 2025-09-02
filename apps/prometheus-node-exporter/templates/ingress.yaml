@@ -1,8 +1,7 @@
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: {{ .Values.namespace.name }}
-  namespace: prometheus-node-exporter
+  name: {{ .Values.prometheus-node-exporter.fullnameOverride }}
 spec:
   entryPoints:
     - websecure
@@ -12,6 +11,6 @@ spec:
       match: Host(`node-exporter.arcamh.com`)
       priority: 10
       services:
-        - name: prometheus-node-exporter
-          namespace: prometheus-node-exporter
+        - name: {{ .Values.prometheus-node-exporter.fullnameOverride }}
+          namespace: {{ .Values.prometheus-node-exporter.fullnameOverride }}
           port: 80

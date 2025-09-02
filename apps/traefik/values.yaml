@@ -22,6 +22,6 @@ traefik:
   experimental:
     plugins:
       cloudflarewarp:
-        moduleName: "github.com/JimmyTsai16/cloudflarewarp"
-        version: "v0.0.1"
+        moduleName: "github.com/fma965/cloudflarewarp"
+        version: "v1.4.0"
 

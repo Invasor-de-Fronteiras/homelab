@@ -13,19 +13,4 @@ traefik:
     insecure: true
   tlsStore:
     default: {}
-  ports:
-    traefik:
-      port: 9000
-      exposedPort: 9000
-      # nodePort: 32000
-      # publishedPort: 32000
-      protocol: TCP
-      # hostIP:
-  ingressRoute:
-    dashboard:
-      enabled: true
-      matchRule: Host(`traefik.arcamh.com`)
-      entryPoints:
-        - websecure
-        - traefik
-        - web
+

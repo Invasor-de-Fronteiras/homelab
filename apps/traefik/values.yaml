@@ -7,7 +7,13 @@ traefik:
       level: DEBUG
     access:
       enabled: true
-
+  ingressRoute:
+    dashboard:
+      enabled: true
+      match: Host(`traefik.arcamh.com`)
+      entryPoints:
+        - web
+        - websecure
   api:
     dashboard: true
     insecure: true

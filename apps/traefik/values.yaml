@@ -19,9 +19,4 @@ traefik:
     insecure: true
   tlsStore:
     default: {}
-  experimental:
-    plugins:
-      cloudflarewarp:
-        moduleName: "github.com/fma965/cloudflarewarp"
-        version: "v1.4.0"
 

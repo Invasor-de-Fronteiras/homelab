@@ -1,8 +1,8 @@
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: prometheus-node-exporter
-  namespace: prometheus-node-exporter
+  name: monitoring
+  namespace: monitoring
 spec:
   entryPoints:
     - websecure
@@ -13,7 +13,7 @@ spec:
       priority: 10
       services:
         - name: prometheus-node-exporter
-          namespace: prometheus-node-exporter
+          namespace: monitoring
           port: 9100
       middlewares:
         - name: monitoring-allowlist

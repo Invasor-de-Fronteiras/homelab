@@ -4,9 +4,9 @@ providers:
 traefik:
   logs:
     general:
-      level: DEBUG
+      level: INFO
     access:
-      enabled: true
+      enabled: false
   ingressRoute:
     dashboard:
       enabled: true

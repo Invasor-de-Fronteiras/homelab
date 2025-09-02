@@ -10,7 +10,7 @@ traefik:
   ingressRoute:
     dashboard:
       enabled: true
-      match: Host(`traefik.arcamh.com`)
+      matchRule: Host(`traefik.arcamh.com`)
       entryPoints:
         - web
         - websecure

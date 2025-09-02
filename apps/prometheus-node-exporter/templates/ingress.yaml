@@ -13,4 +13,4 @@ spec:
       services:
         - name: prometheus-node-exporter
           namespace: prometheus-node-exporter
-          port: 80
+          port: 9100

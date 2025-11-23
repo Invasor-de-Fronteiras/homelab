@@ -43,7 +43,7 @@ spec:
           jp: "jp-patch.arcamh.com"
         entriesServer:
           image:
-            tag: "v1.2.10"
+            tag: "v1.2.11"
           volumes:
             - name: "bin"
               hostPath:

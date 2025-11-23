@@ -42,6 +42,8 @@ spec:
           en: "en-patch.arcamh.com"
           jp: "jp-patch.arcamh.com"
         entriesServer:
+          image:
+            tag: "v1.2.10"
           volumes:
             - name: "bin"
               hostPath:

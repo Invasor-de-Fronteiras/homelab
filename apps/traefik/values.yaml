@@ -4,7 +4,7 @@ providers:
 traefik:
   logs:
     general:
-      level: INFO
+      level: DEBUG
     access:
       enabled: false
   ingressRoute:

@@ -54,7 +54,7 @@ spec:
               mountPath: "/app/bin"
   syncPolicy:
     automated: 
-      prune: true
+      prune: false
       selfHeal: true
     retry:
       limit: 3

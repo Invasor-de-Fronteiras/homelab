@@ -4,7 +4,7 @@ namespace:
 application:
   source:
     url: https://github.com/argoproj/argo-helm.git
-    targetRevision: argo-cd-6.7.11
+    targetRevision: argo-cd-9.1.4
     path: ./charts/argo-cd
   global:
     logging:

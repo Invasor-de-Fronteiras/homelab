@@ -8,4 +8,4 @@ spec:
   ipAllowList:
     sourceRange:
       - 45.88.188.213/32
-      - 0.0.0.0/32
+      - 0.0.0.0/16

@@ -8,6 +8,7 @@ prometheus-node-exporter:
   fullnameOverride: prometheus-node-exporter
   kubeRBACProxy:
     enabled: true
+    insecure: true
   service:
     enabled: true
     type: ClusterIP

@@ -14,7 +14,7 @@ spec:
     path: {{ index .Values "prometheus-node-exporter" "source" "path" }}
     helm:
       releaseName: "prometheus-node-exporter"
-      {{- with .Values.application }}
+      {{- with (index .Values "prometheus-node-exporter")  }}
       values: |
         {{- unset . "source" | toYaml | nindent 8 }}
       {{- end }}

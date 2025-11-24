@@ -15,7 +15,6 @@ spec:
     targetRevision: HEAD
     path: charts/kelbi
     helm:
-      release: kelbi
       valuesObject:
         global:
           secretName: kelbi-database-secret

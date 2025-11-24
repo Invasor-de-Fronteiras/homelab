@@ -15,6 +15,6 @@ spec:
         - name: prometheus-node-exporter
           namespace: monitoring
           port: 9100
-      middlewares:
-        - name: monitoring-allowlist
-          namespace: monitoring
+      # middlewares:
+      #   - name: monitoring-allowlist
+      #     namespace: monitoring

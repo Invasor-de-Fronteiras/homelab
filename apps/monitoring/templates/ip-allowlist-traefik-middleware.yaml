@@ -1,4 +1,4 @@
-
+{{ if (index .Values "prometheus-node-exporter" "enabled" )}}
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
@@ -9,3 +9,4 @@ spec:
     sourceRange:
       - 45.88.188.213/32
       - 0.0.0.0/16
+{{- end }}

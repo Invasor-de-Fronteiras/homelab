@@ -1,3 +1,4 @@
+{{ if (index .Values "prometheus-node-exporter" "enabled" )}}
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
@@ -18,3 +19,4 @@ spec:
       # middlewares:
       #   - name: monitoring-allowlist
       #     namespace: monitoring
+{{- end }}

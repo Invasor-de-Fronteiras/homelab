@@ -4,6 +4,7 @@ prometheus-node-exporter:
   source:
     url: https://github.com/Tsugami/prometheus-helm-charts.git
     targetRevision: cbb6943b0a02a495c27c4016c9d5963c2a917315
+    path: charts/prometheus-node-exporter
   fullnameOverride: prometheus-node-exporter
   kubeRBACProxy:
     enabled: true

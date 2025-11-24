@@ -1,3 +1,4 @@
+{{ if (index .Values "prometheus-node-exporter" "enabled" )}}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -24,3 +25,4 @@ spec:
       selfHeal: true
     retry:
       limit: -1
+{{- end }}

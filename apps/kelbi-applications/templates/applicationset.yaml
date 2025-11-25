@@ -14,8 +14,8 @@ spec:
         files:
           - path: '**/**/values.yaml'
         values:
-          env: '{{ index .path.segments 0 }}'
-          app: '{{ index .path.segments 1 }}'
+          env: '{{ index .path.segments 1 }}'
+          app: '{{ index .path.segments 2 }}'
   template:
     metadata:
       name: '{{.values.env}}-{{.values.app}}'

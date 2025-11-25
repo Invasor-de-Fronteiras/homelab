@@ -1,0 +1,45 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: kelbi-applications
+  namespace: argocd
+spec:
+  goTemplate: true
+  goTemplateOptions:
+    - missingkey=error
+  generators:
+    - git:
+        repoURL: https://github.com/Invasor-de-Fronteiras/kelbi-applications.git
+        revision: main
+        files:
+          - path: prod/**/values.yaml
+        values:
+          env: '{{ index .path.segments 1 }}'
+          app: '{{ index .path.segments 2 }}'
+  template:
+    metadata:
+      name: '{{.values.env}}-{{.values.app}}'
+    spec:
+      project: default
+      sources:
+        - ref: repo
+          repoURL: https://github.com/Invasor-de-Fronteiras/kelbi-applications.git
+          targetRevision: main
+
+        - repoURL: https://github.com/Invasor-de-Fronteiras/helm-charts.git
+          targetRevision: arca-app-0.2.0
+          path: charts/arca-app
+          helm:
+            valueFiles:
+              - $repo/{{.path.path}}/values.yaml
+
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: apps
+
+      syncPolicy:
+        automated:
+          prune: false
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true

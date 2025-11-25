@@ -12,7 +12,7 @@ spec:
         repoURL: https://github.com/Invasor-de-Fronteiras/kelbi-applications.git
         revision: main
         files:
-          - path: **/**/values.yaml
+          - path: /**/**/values.yaml
         values:
           env: '{{ index .path.segments 0 }}'
           app: '{{ index .path.segments 1 }}'

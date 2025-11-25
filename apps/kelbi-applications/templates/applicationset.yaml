@@ -27,7 +27,7 @@ spec:
           targetRevision: main
 
         - repoURL: https://github.com/Invasor-de-Fronteiras/helm-charts.git
-          targetRevision: arca-app-1.0.0
+          targetRevision: arca-app-2.0.0
           path: charts/arca-app
           helm:
             valueFiles:

@@ -6,6 +6,7 @@ metadata:
 spec:
   sourceRepos:
     - 'https://github.com/Invasor-de-Fronteiras/kelbi-applications'
+    - 'https://github.com/Invasor-de-Fronteiras/homelab.git'
   destinations:
     - namespace: 'apps'
       server: https://kubernetes.default.svc

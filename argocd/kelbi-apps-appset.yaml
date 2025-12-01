@@ -30,6 +30,14 @@ spec:
           targetRevision: HEAD
           path: charts/kelbi-app
           helm:
+            values: |
+              httpRoute:
+                parents:
+                  - name: traefik-gateway
+                    sectionName: web
+                    kind: Gateway
+                    port: 8000
+                    namespace: traefik
             valueFiles:
               - $repo/{{.path.path}}/values.yaml
 

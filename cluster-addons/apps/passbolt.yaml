@@ -10,8 +10,7 @@ spec:
   source:
     repoURL: https://github.com/Invasor-de-Fronteiras/homelab
     targetRevision: HEAD
-    path: ./charts/passbolt
-    chart: passbolt
+    path: charts/passbolt
     helm:
       releaseName: passbolt
   destination:

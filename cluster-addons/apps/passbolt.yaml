@@ -15,7 +15,7 @@ spec:
       releaseName: passbolt
   destination:
     server: https://kubernetes.default.svc
-    namespace: traefik
+    namespace: passbolt
   syncPolicy:
     automated:
       prune: false

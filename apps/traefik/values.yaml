@@ -1,6 +1,8 @@
 providers:
   kubernetesCRD:
     allowCrossNamespace: true
+  kubernetesGateway:
+    enabled: true
 traefik:
   logs:
     general:
@@ -20,3 +22,8 @@ traefik:
   tlsStore:
     default: {}
 
+gateway:
+  listeners:
+    web:
+      namespacePolicy:
+        from: All

@@ -22,8 +22,8 @@ traefik:
   tlsStore:
     default: {}
 
-gateway:
-  listeners:
-    web:
-      namespacePolicy:
-        from: All
+  gateway:
+    listeners:
+      web:
+        namespacePolicy:
+          from: All

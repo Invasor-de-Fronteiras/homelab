@@ -20,7 +20,7 @@ spec:
     metadata:
       name: '{{.values.env}}-{{.values.app}}'
     spec:
-      project: default
+      project: kelbi-apps
       sources:
         - ref: repo
           repoURL: https://github.com/Invasor-de-Fronteiras/kelbi-applications.git
@@ -35,7 +35,7 @@ spec:
 
       destination:
         server: https://kubernetes.default.svc
-        namespace: kelbi-apps
+        namespace: apps
 
       syncPolicy:
         automated:

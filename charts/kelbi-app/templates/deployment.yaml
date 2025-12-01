@@ -48,9 +48,19 @@ spec:
             - name: http
               containerPort: {{ default .Values.service.port .Values.config.port }}
               protocol: TCP
-          {{- with .Values.config.env }}
+          {{- $env := .Values.config.env -}}
+          {{- if and $env (kindIs "string" $env) }}
+          envFrom:
+            - {{- if hasPrefix "configmap:" $env }}
+              configMapRef:
+                name: {{ trimPrefix "configmap:" $env }}
+              {{- else }}
+              secretRef:
+                name: {{ trimPrefix "secret:" $env }}
+              {{- end }}
+          {{- else if $env }}
           env:
-            {{- toYaml . | nindent 12 }}
+            {{- toYaml $env | nindent 12 }}
           {{- end }}
           {{- with .Values.livenessProbe }}
           livenessProbe:

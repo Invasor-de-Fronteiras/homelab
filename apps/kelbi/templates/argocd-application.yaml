@@ -23,7 +23,7 @@ spec:
           enabled: false
         launcherServer:
           image:
-            tag: "v1.2.10"
+            tag: "v1.2.12"
           service:
             type: ClusterIP
           volumes:
@@ -36,13 +36,13 @@ spec:
               mountPath: "/app/www/kelbi/build/gacha_shop"
         signServer:
           image:
-            tag: "v1.2.10"
+            tag: "v1.2.12"
         patchServer:
           en: "en-patch.arcamh.com"
           jp: "jp-patch.arcamh.com"
         entriesServer:
           image:
-            tag: "v1.2.11"
+            tag: "v1.2.12"
           volumes:
             - name: "bin"
               hostPath:

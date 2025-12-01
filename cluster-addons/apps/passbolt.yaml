@@ -13,6 +13,9 @@ spec:
     chart: passbolt
     helm:
       releaseName: passbolt
+      values: |
+        mariadbDependencyEnabled: false
+        postgresqlDependencyEnabled: true
   destination:
     server: https://kubernetes.default.svc
     namespace: passbolt

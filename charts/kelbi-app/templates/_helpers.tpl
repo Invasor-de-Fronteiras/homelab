@@ -21,26 +21,32 @@ Expand the name of the chart.
 {{/*
 Render environment configuration for the container.
 - If .Values.config.env is a string:
-	- "configmap:<name>" => envFrom.configMapRef
-	- otherwise => envFrom.secretRef (supports "secret:<name>" or plain name)
+    - "configmap:<name>" => envFrom.configMapRef
+    - otherwise => envFrom.secretRef (supports "secret:<name>" or plain name)
 - If it's a list => render under env:
 */}}
 {{- define "kelbi-app.containerEnv" -}}
-{{- $env := .Values.config.env -}}
-{{- if and $env (kindIs "string" $env) -}}
+{{- $env := .Values.config.env }}
+
+{{- if and $env (kindIs "string" $env) }}
+
 envFrom:
-	- {{- if hasPrefix "configmap:" $env }}
-		configMapRef:
-			name: {{ trimPrefix "configmap:" $env }}
-		{{- else }}
-		secretRef:
-			name: {{ trimPrefix "secret:" $env }}
-		{{- end }}
-{{- else if $env -}}
+  {{- if hasPrefix "configmap:" $env }}
+  - configMapRef:
+      name: {{ trimPrefix "configmap:" $env }}
+  {{- else }}
+  - secretRef:
+      name: {{ trimPrefix "secret:" $env }}
+  {{- end }}
+
+{{- else if $env }}
+
 env:
 {{ toYaml $env | nindent 2 }}
-{{- end -}}
-{{- end -}}
+
+{{- end }}
+{{- end }}
+
 
 {{/*
 Compute default HTTP health probes when http port exists and

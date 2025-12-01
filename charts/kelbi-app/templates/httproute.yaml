@@ -1,4 +1,5 @@
-{{- if .Values.gatewayApi.enabled and .Values.config.expose }}
+{{- $httpPort := include "kelbi-app.httpPort" . | trim -}}
+{{- if and .Values.gatewayApi.enabled .Values.config.expose $httpPort }}
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
@@ -30,7 +31,7 @@ spec:
   {{- end }}
   rules:
     {{- $svcName := include "kelbi-app.fullname" . -}}
-    {{- $svcPort := (default .Values.service.port .Values.config.port) -}}
+    {{- $svcPort := $httpPort -}}
     {{- range $r := .Values.httpRoute.rules }}
     - matches:
         {{- range $m := $r.matches }}

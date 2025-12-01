@@ -1,3 +1,14 @@
+{{- define "kelbi-app.httpPort" -}}
+{{- $svc := .Values.service -}}
+{{- $cfg := .Values.config -}}
+{{- if and $svc $svc.port -}}
+{{- $svc.port -}}
+{{- else if and $cfg $cfg.port -}}
+{{- $cfg.port -}}
+{{- else -}}
+{{- "" -}}
+{{- end -}}
+{{- end -}}
 {{/*
 Expand the name of the chart.
 */}}
@@ -6,6 +17,61 @@ Expand the name of the chart.
 {{- $override := default "" .Values.nameOverride -}}
 {{- default .Chart.Name (default $appName $override) | trunc 63 | trimSuffix "-" }}
 {{- end }}
+
+{{/*
+Render environment configuration for the container.
+- If .Values.config.env is a string:
+	- "configmap:<name>" => envFrom.configMapRef
+	- otherwise => envFrom.secretRef (supports "secret:<name>" or plain name)
+- If it's a list => render under env:
+*/}}
+{{- define "kelbi-app.containerEnv" -}}
+{{- $env := .Values.config.env -}}
+{{- if and $env (kindIs "string" $env) -}}
+envFrom:
+	- {{- if hasPrefix "configmap:" $env }}
+		configMapRef:
+			name: {{ trimPrefix "configmap:" $env }}
+		{{- else }}
+		secretRef:
+			name: {{ trimPrefix "secret:" $env }}
+		{{- end }}
+{{- else if $env -}}
+env:
+{{ toYaml $env | nindent 2 }}
+{{- end -}}
+{{- end -}}
+
+{{/*
+Compute default HTTP health probes when http port exists and
+probes are not explicitly provided in values.
+Accepts the full context (.) and emits livenessProbe and readinessProbe YAML.
+*/}}
+{{- define "kelbi-app.healthProbes" -}}
+{{- $httpPort := include "kelbi-app.httpPort" . -}}
+{{- if and $httpPort (ne $httpPort "") -}}
+{{- $hc := default dict .Values.health_check -}}
+{{- $path := default "/" (get $hc "path") -}}
+{{- $delay := default 5 (get $hc "initialDelaySeconds") -}}
+{{- $period := default 10 (get $hc "periodSeconds") -}}
+{{- if not .Values.livenessProbe -}}
+livenessProbe:
+	httpGet:
+		path: {{ $path | quote }}
+		port: http
+	initialDelaySeconds: {{ $delay }}
+	periodSeconds: {{ $period }}
+{{- end -}}
+{{- if not .Values.readinessProbe -}}
+readinessProbe:
+	httpGet:
+		path: {{ $path | quote }}
+		port: http
+	initialDelaySeconds: {{ $delay }}
+	periodSeconds: {{ $period }}
+{{- end -}}
+{{- end -}}
+{{- end -}}
 
 {{/*
 Create a default fully qualified app name.

@@ -44,31 +44,26 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           {{- end }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          {{- $httpPort := include "kelbi-app.httpPort" . | trim }}
+          {{- if $httpPort }}
           ports:
             - name: http
-              containerPort: {{ default .Values.service.port .Values.config.port }}
+              containerPort: {{ $httpPort }}
               protocol: TCP
-          {{- $env := .Values.config.env -}}
-          {{- if and $env (kindIs "string" $env) }}
-          envFrom:
-            - {{- if hasPrefix "configmap:" $env }}
-              configMapRef:
-                name: {{ trimPrefix "configmap:" $env }}
-              {{- else }}
-              secretRef:
-                name: {{ trimPrefix "secret:" $env }}
-              {{- end }}
-          {{- else if $env }}
-          env:
-            {{- toYaml $env | nindent 12 }}
           {{- end }}
-          {{- with .Values.livenessProbe }}
+          {{- with (include "kelbi-app.containerEnv" .) }}
+          {{ . | nindent 10 }}
+          {{- end }}
+          {{- if .Values.livenessProbe }}
           livenessProbe:
-            {{- toYaml . | nindent 12 }}
+            {{- toYaml .Values.livenessProbe | nindent 12 }}
           {{- end }}
-          {{- with .Values.readinessProbe }}
+          {{- if .Values.readinessProbe }}
           readinessProbe:
-            {{- toYaml . | nindent 12 }}
+            {{- toYaml .Values.readinessProbe | nindent 12 }}
+          {{- end }}
+          {{- with (include "kelbi-app.healthProbes" .) }}
+          {{ . | nindent 10 }}
           {{- end }}
           {{- with .Values.resources }}
           resources:

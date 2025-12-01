@@ -8,14 +8,12 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://download.passbolt.com/charts/passbolt
-    targetRevision: 2.0.1
+    repoURL: https://github.com/Invasor-de-Fronteiras/homelab
+    targetRevision: HEAD
+    path: ./charts/passbolt
     chart: passbolt
     helm:
       releaseName: passbolt
-      values: |
-        mariadbDependencyEnabled: false
-        postgresqlDependencyEnabled: true
   destination:
     server: https://kubernetes.default.svc
     namespace: passbolt

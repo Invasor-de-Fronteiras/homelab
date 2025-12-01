@@ -1,0 +1,47 @@
+{{- if .Values.gatewayApi.enabled }}
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: {{ include "kelbi-app.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "kelbi-app.labels" . | nindent 4 }}
+    {{- with .Values.httpRoute.labels }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+  {{- with .Values.httpRoute.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  {{- if .Values.httpRoute.parents }}
+  parentRefs:
+    {{- toYaml .Values.httpRoute.parents | nindent 4 }}
+  {{- else }}
+  parentRefs: []
+  {{- end }}
+  {{- $domain := default "" .Values.network.domain -}}
+  {{- if .Values.httpRoute.hosts }}
+  hostnames:
+    {{- toYaml .Values.httpRoute.hosts | nindent 4 }}
+  {{- else if $domain }}
+  hostnames:
+    - {{ $domain | quote }}
+  {{- end }}
+  rules:
+    {{- $svcName := include "kelbi-app.fullname" . -}}
+    {{- $svcPort := (default .Values.service.port .Values.config.port) -}}
+    {{- range $r := .Values.httpRoute.rules }}
+    - matches:
+        {{- range $m := $r.matches }}
+        - path:
+            type: {{ default "PathPrefix" $m.path.type }}
+            value: {{ default "/" $m.path.value | quote }}
+        {{- end }}
+      backendRefs:
+        {{- range $b := (default (list (dict "port" $svcPort)) $r.backendRefs) }}
+        - name: {{ $svcName }}
+          port: {{ default $svcPort $b.port }}
+        {{- end }}
+    {{- end }}
+{{- end }}

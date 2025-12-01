@@ -26,9 +26,9 @@ spec:
           repoURL: https://github.com/Invasor-de-Fronteiras/kelbi-applications.git
           targetRevision: main
 
-        - repoURL: https://github.com/Invasor-de-Fronteiras/helm-charts.git
+        - repoURL: https://github.com/Invasor-de-Fronteiras/homelab.git
           targetRevision: HEAD
-          path: charts/arca-app
+          path: charts/kelbi-app
           helm:
             valueFiles:
               - $repo/{{.path.path}}/values.yaml

@@ -12,10 +12,10 @@ spec:
         repoURL: https://github.com/Invasor-de-Fronteiras/kelbi-applications.git
         revision: main
         files:
-          - path: '**/**/values.yaml'
+          - path: 'apps/**/**/values.yaml'
         values:
-          env: '{{ index .path.segments 0 }}'
-          app: '{{ index .path.segments 1 }}'
+          env: '{{ index .path.segments 1 }}'
+          app: '{{ index .path.segments 2 }}'
   template:
     metadata:
       name: '{{.values.env}}-{{.values.app}}'
@@ -35,7 +35,7 @@ spec:
 
       destination:
         server: https://kubernetes.default.svc
-        namespace: apps
+        namespace: kelbi-apps
 
       syncPolicy:
         automated:

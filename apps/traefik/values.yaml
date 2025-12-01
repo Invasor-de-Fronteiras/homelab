@@ -1,9 +1,9 @@
-providers:
-  kubernetesCRD:
-    allowCrossNamespace: true
-  kubernetesGateway:
-    enabled: true
 traefik:
+  providers:
+    kubernetesCRD:
+      allowCrossNamespace: true
+    kubernetesGateway:
+      enabled: true
   logs:
     general:
       level: DEBUG

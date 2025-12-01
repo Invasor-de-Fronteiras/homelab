@@ -6,6 +6,7 @@ metadata:
 spec:
   sourceRepos:
     - 'https://github.com/Invasor-de-Fronteiras/homelab'
+    - 'https://github.com/kubernetes-sigs/gateway-api'
   destinations:
     - namespace: '*'
       server: https://kubernetes.default.svc

@@ -1,20 +1,4 @@
 apiVersion: argoproj.io/v1alpha1
-kind: AppProject
-metadata:
-  name: cluster-addons
-  namespace: argocd
-spec:
-  sourceRepos:
-    - 'https://github.com/Invasor-de-Fronteiras/homelab'
-  destinations:
-    - namespace: '*'
-      server: https://kubernetes.default.svc
-
-  clusterResourceWhitelist:
-    - group: "*"
-      kind: "*"
----
-apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: cluster-addons-apps

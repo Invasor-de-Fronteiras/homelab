@@ -62,19 +62,21 @@ Accepts the full context (.) and emits livenessProbe and readinessProbe YAML.
 {{- $period := default 10 (get $hc "periodSeconds") -}}
 {{- if not .Values.livenessProbe -}}
 livenessProbe:
-	httpGet:
-		path: {{ $path | quote }}
-		port: http
-	initialDelaySeconds: {{ $delay }}
-	periodSeconds: {{ $period }}
+
+  httpGet:
+    path: {{ $path | quote }}
+    port: http
+  initialDelaySeconds: {{ $delay }}
+  periodSeconds: {{ $period }}
 {{- end -}}
-{{- if not .Values.readinessProbe -}}
+{{- if not .Values.readinessProbe }}
 readinessProbe:
-	httpGet:
-		path: {{ $path | quote }}
-		port: http
-	initialDelaySeconds: {{ $delay }}
-	periodSeconds: {{ $period }}
+
+  httpGet:
+    path: {{ $path | quote }}
+    port: http
+  initialDelaySeconds: {{ $delay }}
+  periodSeconds: {{ $period }}
 {{- end -}}
 {{- end -}}
 {{- end -}}

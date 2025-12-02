@@ -22,12 +22,12 @@ spec:
   parentRefs: []
   {{- end }}
   {{- $domain := default "" .Values.network.domain -}}
-  {{- if .Values.httpRoute.hosts }}
-  hostnames:
-    {{- toYaml .Values.httpRoute.hosts | nindent 4 }}
-  {{- else if $domain }}
+  {{- if $domain }}
   hostnames:
     - {{ $domain | quote }}
+  {{- else if .Values.httpRoute.hosts }}
+  hostnames:
+    {{- toYaml .Values.httpRoute.hosts | nindent 4 }}
   {{- end }}
   rules:
     {{- $svcName := include "kelbi-app.fullname" . -}}

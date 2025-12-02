@@ -42,7 +42,7 @@ spec:
       backendRefs:
         {{- range $b := (default (list (dict "port" $svcPort)) $r.backendRefs) }}
         - name: {{ $svcName }}
-          port: {{ default $svcPort $b.port }}
+          port: {{ $httpPort }}
         {{- end }}
     {{- end }}
 {{- end }}

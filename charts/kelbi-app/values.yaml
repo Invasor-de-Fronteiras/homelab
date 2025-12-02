@@ -151,9 +151,6 @@ httpRoute:
     - chart-example.local
   # Rules mapping paths to backend service
   rules:
-    - matches:
-        - path:
-            type: PathPrefix
-            value: "/"
+    - matches: {}
       backendRefs:
         - port: 80

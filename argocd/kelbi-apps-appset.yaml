@@ -27,7 +27,7 @@ spec:
           targetRevision: main
 
         - repoURL: https://github.com/Invasor-de-Fronteiras/homelab.git
-          targetRevision: HEAD
+          targetRevision: chart-kelbi-app@v1
           path: charts/kelbi-app
           helm:
             values: |

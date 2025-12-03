@@ -53,4 +53,5 @@ for chart in $CHARTS_DIR/*; do
   fi
 done
 
+git push origin --tags
 echo "🚀 Finished!"

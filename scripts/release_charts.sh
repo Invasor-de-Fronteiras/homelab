@@ -2,7 +2,7 @@
 set -e
 
 CHARTS_DIR="charts"
-ALLOWED_BRANCH="master"
+ALLOWED_BRANCH="main"
 
 CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
 

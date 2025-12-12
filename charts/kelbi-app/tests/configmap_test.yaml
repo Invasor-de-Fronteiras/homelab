@@ -1,0 +1,30 @@
+suite: test configmap data
+templates:
+  - templates/configmap.yaml
+
+tests:
+  - it: should pass
+    release:
+      name: my-release
+    set:
+      configmapData:
+        contents:
+          my-config.txt: |
+            key1: value1
+            key2: value2
+    asserts:
+      - exists:
+          path: 'data["my-config.txt"]'
+---
+suite: test configmap data not exists when not set
+templates:
+  - templates/configmap.yaml
+
+tests:
+  - it: should pass
+    release:
+      name: my-release
+    set: {}
+    asserts:
+      - notExists:
+          kind: ConfigMap

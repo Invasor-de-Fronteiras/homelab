@@ -158,3 +158,8 @@ httpRoute:
     - matches: {}
       backendRefs:
         - port: 80
+
+configmapData: {}
+  # name: ""
+  # contents:
+  #   key: value

@@ -37,6 +37,8 @@ tests:
           content:
             name: http
             port: 8080
+            protocol: TCP
+            targetPort: http
           count: 1
           any: true
       - contains:
@@ -44,6 +46,7 @@ tests:
           content:
             name: custom-port
             port: 443
+            targetPort: custom-port
           count: 1
           any: true
 ---

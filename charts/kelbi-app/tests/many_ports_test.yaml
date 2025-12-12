@@ -68,14 +68,14 @@ tests:
           path: spec.template.spec.containers[0].ports
           content:
             name: custom-port
-            port: 443
+            containerPort: 443
           count: 1
           any: true
       - contains:
           path: spec.template.spec.containers[0].ports
           content:
             name: http
-            port: 8080
+            containerPort: 8080
           count: 1
           any: true
       - equal:

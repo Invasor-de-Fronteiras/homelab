@@ -30,6 +30,21 @@ Expand the name of the chart.
 
 {{- end -}}
 
+{{- define "kelbi-app.containerPorts" -}}
+{{- $cfg := .Values.config -}}
+{{- if and $cfg $cfg.port }}
+- name: http
+  containerPort: {{ $cfg.port }}
+  protocol: TCP
+{{- end }}
+
+{{- range .Values.service.ports }}
+- name: {{ .name }}
+  containerPort: {{ .port }}
+  protocol: {{ .protocol }}
+{{- end }}
+{{- end }}
+
 {{- define "kelbi-app.httpPort" -}}
 {{- if .Values.config.port -}}
 {{ .Values.config.port }}

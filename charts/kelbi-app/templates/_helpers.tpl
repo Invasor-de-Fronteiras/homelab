@@ -1,14 +1,4 @@
-{{- define "kelbi-app.httpPort" -}}
-{{- $svc := .Values.service -}}
-{{- $cfg := .Values.config -}}
-{{- if and $svc $svc.port -}}
-{{- $svc.port -}}
-{{- else if and $cfg $cfg.port -}}
-{{- $cfg.port -}}
-{{- else -}}
-{{- "" -}}
-{{- end -}}
-{{- end -}}
+
 {{/*
 Expand the name of the chart.
 */}}
@@ -17,6 +7,38 @@ Expand the name of the chart.
 {{- $override := default "" .Values.nameOverride -}}
 {{- default .Chart.Name (default $appName $override) | trunc 63 | trimSuffix "-" }}
 {{- end }}
+
+
+{{- define "kelbi-app.ports" -}}
+
+{{- $cfg := .Values.config -}}
+{{ $svc := .Values.service }}
+
+{{- if and $cfg $cfg.port -}}
+- name: http
+  port: {{ $cfg.port }}
+  protocol: TCP
+  targetPort: http
+{{- end -}}
+
+{{- range $svc.ports }}
+- name: {{ .name }}
+  port: {{ .port }}
+  protocol: {{ .protocol }}
+  targetPort: {{ .name }}
+{{- end -}}
+
+{{- end -}}
+
+{{- define "kelbi-app.httpPort" -}}
+{{- if .Values.config.port -}}
+{{ .Values.config.port }}
+{{- else if .Values.service.ports -}}
+{{- (first .Values.service.ports).port -}}
+{{- else -}}
+""
+{{- end -}}
+{{- end -}}
 
 {{/*
 Render environment configuration for the container.

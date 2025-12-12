@@ -1,5 +1,5 @@
-{{- $httpPort := include "kelbi-app.httpPort" . | trim }}
-{{- if $httpPort }}
+{{- $ports := include "kelbi-app.ports" . -}}
+{{- if $ports }}
 apiVersion: v1
 kind: Service
 metadata:
@@ -9,10 +9,7 @@ metadata:
 spec:
   type: {{ .Values.service.type }}
   ports:
-    - port: {{ $httpPort }}
-      targetPort: http
-      protocol: TCP
-      name: http
+    {{ $ports | nindent 4 }}
   selector:
     {{- include "kelbi-app.selectorLabels" . | nindent 4 }}
 {{- end }}

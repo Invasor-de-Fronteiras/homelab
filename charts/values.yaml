@@ -1,0 +1,7 @@
+config:
+  port: 3333
+
+service:
+  ports:
+    - name: custom1
+      port: 3331

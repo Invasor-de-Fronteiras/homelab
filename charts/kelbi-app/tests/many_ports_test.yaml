@@ -1,0 +1,100 @@
+suite: test service
+templates:
+  - templates/service.yaml
+tests:
+  - it: should pass
+    release:
+      name: my-release
+    set:
+      config:
+        port: 8080
+      service:
+        type: ClusterIP
+    asserts:
+      - equal:
+          path: spec.type
+          value: ClusterIP
+---
+suite: test service with many ports
+templates:
+  - templates/service.yaml
+tests:
+  - it: should pass
+    release:
+      name: my-release
+    set:
+      service:
+        ports:
+          - port: 443
+            targetPort: web
+            protocol: TCP
+            name: custom-port
+      config:
+        port: 8080
+    asserts:
+      - contains:
+          path: spec.ports
+          content:
+            name: http
+            port: 8080
+          count: 1
+          any: true
+      - contains:
+          path: spec.ports
+          content:
+            name: custom-port
+            port: 443
+          count: 1
+          any: true
+---
+suite: test deployment with many ports
+templates:
+  - templates/deployment.yaml
+tests:
+  - it: should pass
+    release:
+      name: my-release
+    set:  
+      service:
+        ports:
+          - port: 443
+            targetPort: web
+            protocol: TCP
+            name: custom-port
+      config:
+        port: 8080
+    asserts:
+      - contains:
+          path: spec.template.spec.containers[0].ports
+          content:
+            name: custom-port
+            port: 443
+          count: 1
+          any: true
+      - contains:
+          path: spec.template.spec.containers[0].ports
+          content:
+            name: http
+            port: 8080
+          count: 1
+          any: true
+      - equal:
+          path: spec.template.spec.containers[0].livenessProbe.httpGet.port
+          value: http
+---
+suite: test service disabled
+templates:
+  - templates/service.yaml
+tests:
+  - it: should not render service when no ports are defined
+    release:
+      name: my-release
+    set:
+      service:
+        ports: []
+      config:
+        port: null
+    asserts:
+      - notEqual:
+          kind: Service
+

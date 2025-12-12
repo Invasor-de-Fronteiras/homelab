@@ -44,12 +44,10 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           {{- end }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          {{- $httpPort := include "kelbi-app.httpPort" . | trim }}
-          {{- if $httpPort }}
+          {{- $ports := include "kelbi-app.ports" . -}}
+          {{- if $ports }}
           ports:
-            - name: http
-              containerPort: {{ $httpPort }}
-              protocol: TCP
+            {{ $ports | nindent 12 }}
           {{- end }}
           {{- with (include "kelbi-app.containerEnv" .) }}
           {{ . | nindent 10 }}

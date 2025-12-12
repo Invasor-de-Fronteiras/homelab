@@ -26,7 +26,7 @@ tests:
       service:
         ports:
           - port: 443
-            targetPort: web
+            targetPort: 443
             protocol: TCP
             name: custom-port
       config:

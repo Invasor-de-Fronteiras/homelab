@@ -25,7 +25,7 @@ Expand the name of the chart.
 - name: {{ .name }}
   port: {{ .port }}
   protocol: {{ .protocol }}
-  targetPort: {{ .name }}
+  targetPort: {{ .protocol }}
 {{- end -}}
 
 {{- end -}}

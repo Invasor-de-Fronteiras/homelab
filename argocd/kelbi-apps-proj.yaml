@@ -14,3 +14,20 @@ spec:
   clusterResourceWhitelist:
     - group: "*"
       kind: "*"
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: controlplane
+  namespace: argocd
+spec:
+  sourceRepos:
+    - 'https://github.com/Invasor-de-Fronteiras/kelbi-applications'
+    - 'https://github.com/Invasor-de-Fronteiras/homelab.git'
+  destinations:
+    - namespace: 'argocd'
+      server: https://kubernetes.default.svc
+
+  clusterResourceWhitelist:
+    - group: "*"
+      kind: "*"

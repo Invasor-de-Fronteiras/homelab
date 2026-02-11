@@ -4,11 +4,14 @@ metadata:
   name: kelbi-app-of-app
   namespace: argocd
 spec:
-  project: kelbi-apps
+  project: controlplane
   source:
-    path: apps/**/**/application.yaml
     repoURL: https://github.com/Invasor-de-Fronteiras/kelbi-applications.git
     targetRevision: main
+    path: apps
+    directory:
+      include: "*/application.yml"
+      recurse: true
 
   destination:
     server: https://kubernetes.default.svc

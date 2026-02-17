@@ -8,3 +8,4 @@ postgresql:
   backup:
     enabled: true 
     timeZone: "America/Sao_Paulo"
+    storageClass: "local-path"

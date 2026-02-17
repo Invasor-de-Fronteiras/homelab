@@ -1,0 +1,40 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: homelab
+  namespace: argocd
+spec:
+  generators:
+  - git:
+      directories:
+      - path: apps/**
+      repoURL: https://github.com/Invasor-de-Fronteiras/homelab.git
+      revision: HEAD
+  template:
+    metadata:
+      name: '{{path.basename}}-root-app'
+    spec:
+      destination:
+        namespace: '{{path.basename}}'
+        server: https://kubernetes.default.svc
+      project: default
+      source:
+        helm:
+          valueFiles:
+          - values.yaml
+          values: |-
+            waves:
+              project: 100
+              rootApplication: 200
+              namespace: 300
+              application: 400
+        path: '{{path}}'
+        repoURL: https://github.com/Invasor-de-Fronteiras/homelab.git
+        targetRevision: HEAD
+      syncPolicy:
+        automated:
+          prune: false
+          selfHeal: false
+          enabled: false
+        syncOptions:
+        - CreateNamespace=true

@@ -5,3 +5,6 @@ postgresql:
   primary:
     service:
       type: LoadBalancer
+  backup:
+    enabled: true 
+    timeZone: "America/Sao_Paulo"

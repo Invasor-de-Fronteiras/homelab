@@ -3,10 +3,3 @@ postgresql:
   primary:
     service:
       type: LoadBalancer
-  backup:
-    enabled: true 
-    timeZone: "America/Sao_Paulo"
-    cronjob:
-      storage:
-        size: 4Gi
-        storageClass: "local-path"

@@ -13,12 +13,14 @@ spec:
         revision: main
         files:
           - path: 'apps/**/**/values.yaml'
+        
         values:
-          env: '{{ index .path.segments 1 }}'
+          env: 'prod'
           app: '{{ index .path.segments 2 }}'
   template:
     metadata:
       name: '{{.values.env}}-{{.values.app}}'
+      finalizers: []
     spec:
       project: kelbi-apps
       sources:
@@ -47,7 +49,7 @@ spec:
 
       syncPolicy:
         automated:
-          prune: true
+          prune: false
           selfHeal: true
         syncOptions:
           - CreateNamespace=true

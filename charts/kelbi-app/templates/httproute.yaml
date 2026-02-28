@@ -1,5 +1,5 @@
 {{- $httpPort := include "kelbi-app.httpPort" . | trim -}}
-{{- if and .Values.gatewayApi.enabled .Values.network.expose $httpPort }}
+{{- if and .Values.gatewayApi.enabled .Values.network.expose $httpPort (eq .Values.type "web") }}
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:

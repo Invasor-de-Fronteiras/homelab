@@ -1,6 +1,6 @@
 {{- $expose := default false .Values.network.expose -}}
 {{- $domain := default "" .Values.network.domain -}}
-{{- if and (not .Values.gatewayApi.enabled) (or .Values.ingress.enabled $expose) -}}
+{{- if and (not .Values.gatewayApi.enabled) (or .Values.ingress.enabled $expose) (eq .Values.type "web") -}}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:

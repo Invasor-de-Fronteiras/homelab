@@ -32,7 +32,7 @@ Expand the name of the chart.
 
 {{- define "kelbi-app.containerPorts" -}}
 {{- $cfg := .Values.config -}}
-{{- if and $cfg $cfg.port }}
+{{- if and $cfg $cfg.port (eq .Values.type "web") }}
 - name: http
   containerPort: {{ $cfg.port }}
   protocol: TCP
@@ -46,7 +46,7 @@ Expand the name of the chart.
 {{- end }}
 
 {{- define "kelbi-app.httpPort" -}}
-{{- if .Values.config.port -}}
+{{- if and .Values.config.port (eq .Values.type "web") -}}
 {{ .Values.config.port }}
 {{- else if .Values.service.ports -}}
 {{- (first .Values.service.ports).port -}}
@@ -92,7 +92,7 @@ Accepts the full context (.) and emits livenessProbe and readinessProbe YAML.
 */}}
 {{- define "kelbi-app.healthProbes" -}}
 {{- $httpPort := include "kelbi-app.httpPort" . -}}
-{{- if and $httpPort (ne $httpPort "") -}}
+{{- if and $httpPort (ne $httpPort "") (eq .Values.type "web") -}}
 {{- $hc := default dict .Values.health_check -}}
 {{- $path := default "/" (get $hc "path") -}}
 {{- $delay := default 5 (get $hc "initialDelaySeconds") -}}

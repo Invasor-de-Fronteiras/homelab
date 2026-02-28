@@ -1,5 +1,5 @@
 {{- $ports := include "kelbi-app.ports" . -}}
-{{- if $ports }}
+{{- if and $ports (or (eq .Values.type "web")) }}
 apiVersion: v1
 kind: Service
 metadata:

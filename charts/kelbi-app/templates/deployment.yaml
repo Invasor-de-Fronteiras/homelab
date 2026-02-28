@@ -5,7 +5,7 @@ metadata:
   labels:
     {{- include "kelbi-app.labels" . | nindent 4 }}
 spec:
-  {{- if not .Values.autoscaling.enabled and (eq .Values.type "web" or eq .Values.type "worker") }}
+  {{- if and (not .Values.autoscaling.enabled) (or (eq .Values.type "web") (eq .Values.type "worker")) }}
   replicas: {{ default .Values.replicaCount .Values.app.replicas }}
   {{- end }}
   selector:

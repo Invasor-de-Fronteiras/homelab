@@ -1,4 +1,4 @@
-{{- if .Values.autoscaling.enabled }}
+{{- if .Values.autoscaling.enabled and (eq .Values.type "web" or eq .Values.type "worker") }}
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:

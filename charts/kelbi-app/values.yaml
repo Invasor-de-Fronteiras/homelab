@@ -1,3 +1,9 @@
+# Type of the application (web, worker, singleton)
+# - web: A web application that can be accessed via TCP/HTTP with many replicas
+# - worker: A worker is background task that can be run with many replicas
+# - singleton: A singleton is a single instance of the application that is not replicated
+
+type: web
 # Default values for kelbi-app.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.

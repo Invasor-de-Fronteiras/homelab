@@ -3,9 +3,9 @@ namespace:
  
 application:
   source:
-    url: https://github.com/argoproj/argo-helm.git
-    targetRevision: argo-cd-9.1.4
-    path: ./charts/argo-cd
+    chart: argo-cd
+    url: https://argoproj.github.io/argo-helm
+    targetRevision: 9.4.5
   global:
     logging:
       level: debug

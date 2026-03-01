@@ -11,9 +11,9 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
+    chart: {{ .Values.application.source.chart }}
     repoURL: {{ .Values.application.source.url }}
     targetRevision: {{ .Values.application.source.targetRevision }}
-    path: ./charts/argo-cd
     helm:
       releaseName: "argocd"
       {{- with .Values.application }}

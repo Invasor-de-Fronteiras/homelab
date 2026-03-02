@@ -38,3 +38,4 @@ spec:
           enabled: false
         syncOptions:
         - CreateNamespace=true
+        - ServerSideApply=true

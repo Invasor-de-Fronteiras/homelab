@@ -16,5 +16,7 @@ spec:
     automated:
       prune: false
       selfHeal: true
+    syncOptions:
+      - ServerSideApply=true
     retry:
       limit: 3

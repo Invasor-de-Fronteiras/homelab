@@ -9,7 +9,7 @@ spec:
   project: cluster-addons
   source:
     repoURL: https://github.com/kubernetes-sigs/gateway-api
-    targetRevision: v1.4.0
+    targetRevision: v1.5.0
     path: config/crd
   destination:
     server: https://kubernetes.default.svc
@@ -20,3 +20,4 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=false
+      - ServerSideApply=true
